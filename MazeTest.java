@@ -7,18 +7,31 @@ public class MazeTest{
 	public static Maze m; 
 	public static VertexFactory vf; 
 	public static EdgeFactory ef; 
+	public static int size; 
 	
 	@BeforeClass
 	public static void setUp(){
 		vf = new VertexFactory(); 
 		ef = new EdgeFactory(); 
-
-		m = new Maze(8, vf, ef);  
+		size = 8; 
+		m = new Maze(size, vf, ef);  
 	}
 	
 	@Test
-	public void testMaze(){
+	public void testPrintMaze(){
 		System.out.println(m.toString());
+	}
+	
+	@Test
+	public void testSolveMaze(){
+		System.out.println(this.m.shortestPath(m.getVertices()[0][0], m.getVertices()[size-1][size-1]).toString());
+		
+		Vertex[][] mazeVerts = m.getVertices(); 
+		for (int yCounter = 0; yCounter < size; yCounter++){ 
+			for (int xCounter = 0; xCounter < size; xCounter++){
+				System.out.println(mazeVerts[xCounter][yCounter].toString() + ": " + mazeVerts[xCounter][yCounter].getDistanceFromStartVert());
+			}
+		}		
 	}
 }
 

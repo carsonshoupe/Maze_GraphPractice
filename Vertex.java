@@ -5,6 +5,7 @@ class Vertex{
 	private ArrayList<Edge> vertEdges;
 	private int xCoordinate; 
 	private int yCoordinate; 
+	private int distanceFromStartVert; 
 	
 	
 	//Constructors: 
@@ -16,6 +17,9 @@ class Vertex{
 		
 	
 	//Methods:
+	public int getDistanceFromStartVert(){return this.distanceFromStartVert;}
+	public void setDistanceFromStartVert(int dist){this.distanceFromStartVert = dist;}
+	
 	public ArrayList<Edge> getVertEdges(){return this.vertEdges;}
 	
 	public void addEdge(Vertex vert, Edge inputEdge){

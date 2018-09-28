@@ -12,7 +12,7 @@ class EdgeFactory{
 		Edge outputEdge = new Edge(vert1, vert2); 
 		
 		Random rand = new Random(); 
-		int randomWeight = rand.nextInt(100);
+		int randomWeight = rand.nextInt(10);
 		outputEdge.setWeight(randomWeight); 
 		
 		return outputEdge;
