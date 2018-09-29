@@ -13,18 +13,14 @@ public class MazeTest{
 	public static void setUp(){
 		vf = new VertexFactory(); 
 		ef = new EdgeFactory(); 
-		size = 8; 
+		size = 10; 
 		m = new Maze(size, vf, ef);  
-	}
-	
-	@Test
-	public void testPrintMaze(){
 		System.out.println(m.toString());
 	}
 	
 	@Test
 	public void testSolveMaze(){
-		System.out.println(this.m.shortestPath(m.getVertices()[0][0], m.getVertices()[size-1][size-1]).toString());
+		System.out.println("Shortest Path: " + this.m.shortestPath(m.getVertices()[0][0], m.getVertices()[size-1][size-1]).toString() + "\n");
 		
 		Vertex[][] mazeVerts = m.getVertices(); 
 		for (int yCounter = 0; yCounter < size; yCounter++){ 

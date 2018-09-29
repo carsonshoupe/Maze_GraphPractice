@@ -29,20 +29,7 @@ class Vertex{
 	@Override
 	public String toString(){
 		return "V[" + this.xCoordinate + "][" + yCoordinate + "]";
-	}
-	
-	
-	/* 
-	public Edge getNorthEdge(){return vertEdges[0];} 
-	public Edge getSouthEdge(){return vertEdges[1];}
-	public Edge getEastEdge(){return vertEdges[2];} 
-	public Edge getWestEdge(){return vertEdges[3];}
-	public void setNorthEdge(Edge inputEdge){vertEdges[0] = inputEdge;} 
-	public void setSouthEdge(Edge inputEdge){vertEdges[1] = inputEdge;} 
-	public void setEastEdge(Edge inputEdge){vertEdges[2] = inputEdge;} 
-	public void setWestEdge(Edge inputEdge){vertEdges[3] = inputEdge;} 
-	 */
-	 
+	}	 
 }
 	
 	

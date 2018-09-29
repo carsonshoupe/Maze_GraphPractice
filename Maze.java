@@ -32,8 +32,6 @@ class Maze{
 		for (int yCounter = 0; yCounter< size; yCounter++){
 			for (int xCounter = 0; xCounter < size; xCounter++){
 				currentVert = this.vertices[xCounter][yCounter]; 
-				//System.out.println(currentVert.toString() + "[" + xCounter + "][" + yCounter + "]");
-
 				if (xCounter < size-1){
 					Edge edgeToAdd = this.edgeFactory.getEdge(currentVert, this.vertices[xCounter+1][yCounter]); 
 					currentVert.addEdge(this.vertices[xCounter+1][yCounter], edgeToAdd);
@@ -78,9 +76,11 @@ class Maze{
 			Vertex currentVert = Q.remove(); 
 			relevantEdges = currentVert.getVertEdges();
 			for (Edge e: relevantEdges){
-				Vertex connectingVert = e.getVert2(); 
+				Vertex connectingVert = e.getVert2();
 				if (currentVert.getDistanceFromStartVert() + e.getWeight() < connectingVert.getDistanceFromStartVert()){
 					connectingVert.setDistanceFromStartVert(currentVert.getDistanceFromStartVert() + e.getWeight()); 
+					Q.remove(connectingVert); 
+					Q.add(connectingVert); 
 					lastShortestEdge.put(connectingVert, e); 
 				}
 			}
@@ -92,8 +92,6 @@ class Maze{
 		Stack<Vertex> shortestPathStack = new Stack<>();
 		shortestPathStack.push(workingVert);
 		while (!(connectingEdge == null)){
-			//System.out.println(workingVert.toString());
-			//System.out.println("Vert1: " + connectingEdge.getVert1().toString() + "  Vert2: " + connectingEdge.getVert2().toString());
 			workingVert = connectingEdge.getVert1();
 			shortestPathStack.push(workingVert); 
 			connectingEdge = lastShortestEdge.get(workingVert);
